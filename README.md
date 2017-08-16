@@ -6,9 +6,19 @@ Feel free to expand the package's functionality if you want, or message me with 
 
 ## Installation
 
+### Arch Linux
+
 Download the latest version of the package, as of now, `cryptsetup-helper-mfserver-1.1-1-any-pkg-tar-xz`. Then install it. 
 
     pacman -U /path/to/download/dir/cryptsetup-helper-mfserver-1.1-1-any.pkg.tar.xz
+
+### Others
+
+cryptsetup-helper-mfserver hasn't been packaged for any distro except Arch, but it's quite easy to install. Just download `cryptmount` and `cryptumount` and place them in a program folder on your computer, for example `~/.bin/`. Add that folder to your `$PATH` if it's not already there, then it should just run. 
+
+**Please observe**
+
+cryptsetup-helper-mfserver has only been tested on Arch Linux and Debian. 
 
 ## Usage
 
