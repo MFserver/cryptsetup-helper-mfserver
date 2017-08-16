@@ -10,4 +10,4 @@ Mounts `/dev/sdxX` on `/run/media/$USER/name-of-disk`. Will prompt you for a pas
 
     cryptumount name-of-disk
 
-Umounts `/run/media/$USER/name-of-disk`. 
+Unmounts `/run/media/$USER/name-of-disk`. 
