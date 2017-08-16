@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo umount /run/media/$USER/$1
+sudo cryptsetup luksClose $1
+sudo rmdir /run/media/$USER/$1
