@@ -17,3 +17,5 @@ Mounts `/dev/sdxX` on `/run/media/$USER/name-of-disk`. Will prompt you for a pas
     cryptumount name-of-disk
 
 Unmounts `/run/media/$USER/name-of-disk`. 
+
+Feel free to expand the package's functionality if you want, or message me with ideas. Also, if you'd like to package for another distro, please do. 
