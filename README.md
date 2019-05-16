@@ -28,3 +28,6 @@ Mounts `/dev/sdxX` on `/run/media/$USER/name-of-disk`. Will prompt you for a pas
 
 Unmounts `/run/media/$USER/name-of-disk`. 
 
+## Todo
+
+- Look in a specified folder for keyfiles with the same name as the disk at mount
