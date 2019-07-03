@@ -30,4 +30,4 @@ Unmounts `/run/media/$USER/UUID-of-disk`.
 
 ## Pro tip
 
-You can have the keyfile folder synchronized between your computers, and you'll basically never have to worry about a password again. 
+You can have the keyfile folder synchronized between your computers, and you'll basically never have to worry about a password again. `Syncthing` is great for this. 
