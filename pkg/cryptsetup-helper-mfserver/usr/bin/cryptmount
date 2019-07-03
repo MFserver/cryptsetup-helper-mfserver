@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+# Set paths we need
+#
+name=$1
+path=/dev/$name
+uuid=$(find /dev/disk/by-uuid -lname */$name -printf %f)
+uuidpath=/dev/disk/by-uuid/$uuid
+
+#
+# Check if we already have a key
+#
+if [ -f /home/$USER/.cryptmount/keys/$uuid ]; then
+    # We have a key, let's use it
+    sudo cryptsetup luksOpen $uuidpath $uuid -d /home/$USER/.cryptmount/keys/$uuid
+else
+    # There's no key, prompt for passphrase, then create a key (if user wants us to) and add it
+    sudo cryptsetup luksOpen $uuidpath $uuid
+    printf "Create keyfile (y/N): "
+    read shouldwemakekey
+    if [ $shouldwemakekey == "y" ]; then
+        echo "Generating key..."
+        if ! [ -d /home/$USER/.cryptmount/keys ]; then
+            mkdir -p /home/$USER/.cryptmount/keys
+        fi
+        sudo dd if=/dev/urandom of=/home/$USER/.cryptmount/keys/$uuid bs=1024 count=4
+        sudo chown $USER:$USER /home/$USER/.cryptmount/keys/$uuid
+        chmod 0400 /home/$USER/.cryptmount/keys/$uuid
+        echo "Done."
+        echo "Adding key to device..."
+        sudo cryptsetup luksAddKey $uuidpath /home/$USER/.cryptmount/keys/$uuid
+        echo "Done."
+    else
+        echo "Okay then, proceeding as usual." 
+    fi
+fi
+sudo mkdir -p /run/media/$USER/$uuid
+sudo mount /dev/mapper/$uuid /run/media/$USER/$uuid
+sudo chown $USER:$USER /run/media/$USER/$uuid
