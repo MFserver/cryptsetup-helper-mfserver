@@ -1,12 +1,12 @@
 pkgname=cryptsetup-helper-mfserver
-pkgver=1.1
+pkgver=1.2
 pkgrel=1
 depends=('cryptsetup')
 pkgdesc="cryptsetup wrapper to simplify mounting and unmounting of volumes the Arch way"
 arch=('any')
 url="mfserver.net"
 source=("cryptmount" "cryptumount")
-md5sums=('a697d70c38736a6f48dcf55562e69438' '80c6fce493aae0232b852eeb13166138')
+md5sums=('0e2d9a9b2d53a9de7abc87f9f9e4b224' '5d9032d0bdfe810f2a3281ef1c9440d6')
 
 package() {
   cd ${srcdir}
