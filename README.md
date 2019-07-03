@@ -20,14 +20,14 @@ cryptsetup-helper-mfserver hasn't been packaged for any distro except Arch, but 
 
 ## Usage
 
-    cryptmount /dev/sdxX name-of-disk
+    cryptmount sdxX
 
-Mounts `/dev/sdxX` on `/run/media/$USER/name-of-disk`. Will prompt you for a password. 
+Mounts `/dev/sdxX` on `/run/media/$USER/UUID-of-disk`. Also checks in `~/.cryptmount/keys/` for a keyfile correspondng to the UUID of `/dev/sdxX`, and if it exists, it'll use it to mount the disk. If there's no key, it'll prompt for a password, then ask if you want to automatically create a keyfile. 
 
-    cryptumount name-of-disk
+    cryptumount sdxX
 
-Unmounts `/run/media/$USER/name-of-disk`. 
+Unmounts `/run/media/$USER/UUID-of-disk`. 
 
-## Todo
+## Pro tip
 
-- Look in a specified folder for keyfiles with the same name as the disk at mount
+You can have the keyfile folder synchronized between your computers, and you'll basically never have to worry about a password again. 
