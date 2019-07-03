@@ -1,4 +1,6 @@
 #!/bin/bash
-sudo umount /run/media/$USER/$1
-sudo cryptsetup luksClose $1
-sudo rmdir /run/media/$USER/$1
+name=$1
+uuid=$(find /dev/disk/by-uuid -lname */$name -printf %f)
+sudo umount /run/media/$USER/$uuid
+sudo cryptsetup luksClose $uuid
+sudo rmdir /run/media/$USER/$uuid
